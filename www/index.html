@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Mean Arterial Pressure</title>
+  <meta name="description" content="Cardiological measure MAP calculator with basic explanation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="css/bg.css">
+  <!-- Pushing down text -->
+    <style>
+    body {
+      padding-top: 50px;
+    }
+    </style>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+<!-- map.js -->
+<script language="JavaScript">
+<!--
+function meanarterialpressure() {
+
+var sys = document.mapForm.sys.value
+var dia = document.mapForm.dia.value
+
+if(sys > 0 && dia > 0) {
+var finalMap = (2/3)*dia + (1/3)*sys
+document.mapForm.map.value = finalMap
+if(finalMap < 70){
+document.mapForm.meaning.value = "Hypoperfusion."
+}
+if(finalMap > 71 && finalMap < 110){
+document.mapForm.meaning.value = "Physiology."
+}
+if(finalMap > 111){
+document.mapForm.meaning.value = "Hyperperfusion."
+}
+}
+else{
+alert("Error")
+}
+}
+//-->
+</script>
+</head>
+
+<body>
+<!-- Using bootstrap -->
+
+<!-- Navbar top -->
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+      </button>
+      <a class="navbar-brand" href="../index.html">Mean Arterial Pressure Calculator</a>
+    </div>
+  </nav>
+
+<!-- Container text -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 text-center">
+      <h1>Mean Arterial Pressure</h1>
+      <p class="lead">The average arterial pressure during a single cardiac cycle.</p>
+    </div>
+  </div>
+
+<!-- Form for mean arterial pressure -->
+<form name="mapForm" class="form-horizontal">
+  <div class="form-group form-group-lg">
+    <label class="col-sm-2 control-label" for="formGroupInputSmall">Systolic Pressure:</label>
+      <div class="col-xs-2">
+    <input type="number" class="form-control" name="sys" size="10" placeholder="mmHg"><br />
+      </div>
+  </div>
+
+  <div class="form-group form-group-lg">
+        <label class="col-sm-2 control-label" for="formGroupInputSmall">Diastolic Pressure:</label>
+      <div class="col-xs-2">
+        <input type="number" class="form-control" name="dia" size="10" placeholder="mmHg"><br />
+      </div>
+  </div>
+
+<!-- Button calling function meanarterialpressure -->
+<input class="btn btn-success" type="button" value="Calculate MAP" onClick="meanarterialpressure()">
+
+<div class="form-group form-group-lg">
+  <label class="col-sm-2 control-label" for="formGroupInputSmall">Systolic Pressure:</label>
+    <div class="col-xs-2">
+      <input type="number" class="form-control" name="map" size="10" placeholder="Result will show here"><br />
+    </div>
+</div>
+
+<div class="form-group form-group-lg">
+  <label class="col-sm-2 control-label" for="formGroupInputSmall">Systolic Pressure:</label>
+    <div class="col-xs-2">
+      <input type="text" class="form-control" name="meaning" size="25" placeholder="Explanation will show here"><br />
+    </div>
+</div>
+
+<input class="btn btn-danger" type="reset" value="Reset" />
+
+</form>
+</div>
+
+</body>
+</html>
