@@ -1,13 +1,4 @@
-//AHP.
-
-//Mean arterial pressure (MAP) calculator
-
-//MAP = CO * TPR
-//Where Cardiac Output(CO) equals Stroke Volume * Heart Rate & Total Peripheral Resistance (TPR) equals ...
-
-//Values ..
-//Source ..
-
+<!--
 function meanarterialpressure() {
 
 var sys = document.mapForm.sys.value
@@ -30,3 +21,4 @@ else{
 alert("Error")
 }
 }
+//-->
