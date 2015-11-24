@@ -10,10 +10,10 @@ document.mapForm.map.value = finalMap
 if(finalMap < 70){
 document.mapForm.meaning.value = "Hypoperfusion."
 }
-if(finalMap > 71 && finalMap < 110){
+if(finalMap > 70 && finalMap < 105){
 document.mapForm.meaning.value = "Physiology."
 }
-if(finalMap > 111){
+if(finalMap > 105){
 document.mapForm.meaning.value = "Hyperperfusion."
 }
 }
