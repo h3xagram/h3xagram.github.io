@@ -11,4 +11,11 @@ body {
     background-size: cover;
     -o-background-size: cover;
     margin: 0;
+    padding-top: 50px;
+}
+
+.form-group-explanation {
+  margin: auto;
+  width: 30%;
+  padding: 5px;
 }

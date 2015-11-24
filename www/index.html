@@ -6,15 +6,9 @@
   <title>Mean Arterial Pressure</title>
   <meta name="description" content="Cardiological measure MAP calculator with basic explanation">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <link rel="stylesheet" href="css/bg.css">
-  <!-- Pushing down text -->
-    <style>
-    body {
-      padding-top: 50px;
-    }
-    </style>
-
+<!-- Using bootstrap -->
+<!-- Local style -->
+<link rel="stylesheet" href="css/bg.css">
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 <!-- Optional theme -->
@@ -35,6 +29,7 @@
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
       </button>
       <a class="navbar-brand" href="../index.html">Back to index</a>
+      <a class="navbar-brand" href="http://www.cvphysiology.com/Blood%20Pressure/BP006.htm">Cardiovascular physiology</a>
     </div>
   </nav>
 
@@ -47,31 +42,31 @@
     </div>
   </div>
 
-<!-- Form for mean arterial pressure -->
+<!-- Form mean arterial pressure -->
 <form name="mapForm" class="form-horizontal">
 
-  <div class="form-group has-success">
+  <div class="form-group-explanation has-success">
       <input type="number" value="Success" placeholder="Insert systolic pressure in mmHg" class="form-control" name="sys" />
   </div>
 
-  <div class="form-group has-success">
+  <div class="form-group-explanation has-success">
       <input type="number" value="" placeholder="Insert diastolic pressure in mmHg" class="form-control" name="dia" />
   </div>
 
 <!-- Button calling function meanarterialpressure -->
-<div class="form-group">
+<div class="form-group-explanation">
 <input class="btn btn-success" type="button" value="Calculate MAP" onClick="meanarterialpressure()">
 </div>
 
-<div class="form-group">
+<div class="form-group-explanation">
     <input type="number" value="" placeholder="Result will output here" class="form-control" name="map" />
 </div>
 
-<div class="form-group">
+<div class="form-group-explanation">
     <input type="text" value="" placeholder="Calculator will output explanation here" class="form-control" name="meaning" />
 </div>
 
-<div class="form-group">
+<div class="form-group-explanation">
 <input class="btn btn-danger" type="reset" value="Reset" />
 </div>
 
