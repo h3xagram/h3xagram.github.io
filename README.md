@@ -1,13 +1,9 @@
-Chattr
-======
-An elegant & speedy iOS7 chat app built with JavaScript & Framework7, using firebase to handle chat persistence.
+# Firechat.js
 
-Packaged as an HTML5 iOS app (Open in Safari, Click the share icon in the upper-left hand corner, and select `Add to Home Screen` to install to your device).
+[![Version](https://badge.fury.io/gh/firebase%2Ffirechat.svg)](http://badge.fury.io/gh/firebase%2Ffirechat)
 
-## Demo
+Firechat is a simple, extensible chat widget powered by [Firebase](https://www.firebase.com/?utm_source=firechat).
+It is intended to serve as a concise, documented foundation for chat products built on Firebase.
+It works out of the box, and is easily extended.
 
-https://f7-chat.firebaseapp.com/
-
-## Native Build & App.io Preview
-
-https://gonative.io/share/yeker
+For demos, documentation, and integration instructions, see the [Firechat documentation](https://firechat.firebaseapp.com).
