@@ -1,50 +1,53 @@
-var gulp = require('gulp');
-var gutil = require('gulp-util');
-var bower = require('bower');
-var concat = require('gulp-concat');
-var sass = require('gulp-sass');
-var minifyCss = require('gulp-minify-css');
-var rename = require('gulp-rename');
-var sh = require('shelljs');
+var gulp = require('gulp'),
+    connect = require('gulp-connect'),
+    open = require('gulp-open'),
+    port = process.env.port || 3001;
 
-var paths = {
-  sass: ['./scss/**/*.scss']
-};
+gulp.task('open', function(){
+  var options = {
+    url: 'http://localhost:' + port,
+  };
+  gulp.src('./www/index.html')
+  .pipe(open('', options));
+});
 
-gulp.task('default', ['sass']);
+gulp.task('connect', function() {
+  connect.server({
+    root: 'www',
+    port: port,
+    livereload: true
+  });
+});
 
-gulp.task('sass', function(done) {
-  gulp.src('./scss/ionic.app.scss')
-    .pipe(sass())
-    .pipe(gulp.dest('./www/css/'))
-    .pipe(minifyCss({
-      keepSpecialComments: 0
-    }))
-    .pipe(rename({ extname: '.min.css' }))
-    .pipe(gulp.dest('./www/css/'))
-    .on('end', done);
+gulp.task('test', function() {
+  connect.server({
+    root: '.',
+    port: port - 1,
+    livereload: true
+  });
+
+  var options = {
+    url: 'http://localhost:' + (port - 1),
+  };
+  gulp.src('./test/index.html')
+  .pipe(open('', options))
+});
+
+gulp.task('js', function () {
+  gulp.src('./www/**/*.js')
+    .pipe(connect.reload());
+});
+
+gulp.task('html', function () {
+  gulp.src('./www/*.html')
+    .pipe(connect.reload());
 });
 
 gulp.task('watch', function() {
-  gulp.watch(paths.sass, ['sass']);
+    gulp.watch('www/dist/js/*.js', ['js']);
+    gulp.watch('www/index.html', ['html']);
 });
 
-gulp.task('install', ['git-check'], function() {
-  return bower.commands.install()
-    .on('log', function(data) {
-      gutil.log('bower', gutil.colors.cyan(data.id), data.message);
-    });
-});
+gulp.task('default', ['connect', 'watch']);
 
-gulp.task('git-check', function(done) {
-  if (!sh.which('git')) {
-    console.log(
-      '  ' + gutil.colors.red('Git is not installed.'),
-      '\n  Git, the version control system, is required to download Ionic.',
-      '\n  Download git here:', gutil.colors.cyan('http://git-scm.com/downloads') + '.',
-      '\n  Once git is installed, run \'' + gutil.colors.cyan('gulp install') + '\' again.'
-    );
-    process.exit(1);
-  }
-  done();
-});
+gulp.task('serve', ['connect', 'watch', 'open']);
